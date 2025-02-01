@@ -1,0 +1,14 @@
+C:\Users\maste\source\repos\GeneticAlgorithm\bin\Debug\net8.0\GeneticAlgorithm.exe
+C:\Users\maste\source\repos\GeneticAlgorithm\bin\Debug\net8.0\GeneticAlgorithm.deps.json
+C:\Users\maste\source\repos\GeneticAlgorithm\bin\Debug\net8.0\GeneticAlgorithm.runtimeconfig.json
+C:\Users\maste\source\repos\GeneticAlgorithm\bin\Debug\net8.0\GeneticAlgorithm.dll
+C:\Users\maste\source\repos\GeneticAlgorithm\bin\Debug\net8.0\GeneticAlgorithm.pdb
+C:\Users\maste\source\repos\GeneticAlgorithm\obj\Debug\net8.0\GeneticAlgorithm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maste\source\repos\GeneticAlgorithm\obj\Debug\net8.0\GeneticAlgorithm.AssemblyInfoInputs.cache
+C:\Users\maste\source\repos\GeneticAlgorithm\obj\Debug\net8.0\GeneticAlgorithm.AssemblyInfo.cs
+C:\Users\maste\source\repos\GeneticAlgorithm\obj\Debug\net8.0\GeneticAlgorithm.csproj.CoreCompileInputs.cache
+C:\Users\maste\source\repos\GeneticAlgorithm\obj\Debug\net8.0\GeneticAlgorithm.dll
+C:\Users\maste\source\repos\GeneticAlgorithm\obj\Debug\net8.0\refint\GeneticAlgorithm.dll
+C:\Users\maste\source\repos\GeneticAlgorithm\obj\Debug\net8.0\GeneticAlgorithm.pdb
+C:\Users\maste\source\repos\GeneticAlgorithm\obj\Debug\net8.0\GeneticAlgorithm.genruntimeconfig.cache
+C:\Users\maste\source\repos\GeneticAlgorithm\obj\Debug\net8.0\ref\GeneticAlgorithm.dll
