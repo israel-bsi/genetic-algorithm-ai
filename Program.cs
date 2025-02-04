@@ -12,13 +12,13 @@ public class Program
             new("D", 80, 80, 128)
         };
 
-        const string csvFile = @"C:\Users\maste\source\repos\GeneticAlgorithm\ag_data.csv";
+        var csvFile = Path.Combine(Directory.GetCurrentDirectory(), "ag_data.csv");
         var customers = ReadClientsFromCsv(csvFile);
         Console.WriteLine($"Total de clientes carregados: {customers.Count}");
 
         // parâmetros do algoritmo genético
-        const int PopulationSize = 200;
-        const int Generations = 600;
+        const int PopulationSize = 50;
+        const int Generations = 500;
         const double MutationRate = 0.1;
 
         var random = new Random();
@@ -41,7 +41,7 @@ public class Program
             // elitismo: preserva o melhor indivíduo
             var newPopulation = new List<Individual> { best.Clone() };
 
-            // gera novos indivíduos até completar a população
+            // gera novos indivíduos utilizando seleção por torneio torneio até completar a população
             while (newPopulation.Count < PopulationSize)
             {
                 var parent1 = TournamentSelection(population, random);
@@ -53,23 +53,20 @@ public class Program
             }
             population = newPopulation;
 
+            // atualiza o melhor indivíduo
             var currentBest = population.OrderBy(ind => ind.Fitness).First();
-            if (currentBest.Fitness < best.Fitness)
-            {
+            if (currentBest.Fitness < best.Fitness) 
                 best = currentBest.Clone();
-            }
 
-            if (gen % 50 == 0)
-            {
+            // exibe o melhor fitness a cada 50 gerações
+            if (gen % 50 == 0) 
                 Console.WriteLine($"Geração {gen}, melhor fitness: {best.Fitness:F2}");
-            }
         }
 
         Console.WriteLine("\nAtribuição final dos clientes aos APs:");
-        for (var i = 0; i < best.Genes.Length; i++)
-        {
+        for (var i = 0; i < best.Genes.Length; i++) 
             Console.WriteLine($"Cliente {i + 1}: AP {aps[best.Genes[i]].Name}");
-        }
+
         Console.WriteLine("\nFitness final: " + best.Fitness.ToString("F2"));
         Console.WriteLine("Clientes no AP 1: " + best.Genes.Count(g => g == 0));
         Console.WriteLine("Clientes no AP 2: " + best.Genes.Count(g => g == 1));
@@ -98,7 +95,6 @@ public class Program
         {
             var line = lines[i];
             var split = line.Split([';', '\t'], StringSplitOptions.RemoveEmptyEntries);
-            var id = int.Parse(split[0]);
             var x = int.Parse(split[1]);
             var y = int.Parse(split[2]);
             customers.Add(new Customer(x, y));

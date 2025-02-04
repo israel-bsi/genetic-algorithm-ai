@@ -10,10 +10,8 @@ public class Individual
         NumAPs = numAPs;
         Genes = new int[numberOfCustomers];
         // Atribuição aleatória inicial: cada cliente recebe um AP aleatório
-        for (var i = 0; i < numberOfCustomers; i++)
-        {
+        for (var i = 0; i < numberOfCustomers; i++) 
             Genes[i] = random.Next(numAPs);
-        }
     }
 
     // calcula o fitness da solução
@@ -35,10 +33,8 @@ public class Individual
         var penalty = 0.0;
         for (var i = 0; i < aps.Count; i++)
         {
-            if (countAP[i] > aps[i].Capacity)
-            {
-                penalty += (countAP[i] - aps[i].Capacity) * 1000; // fator de penalidade ajustável
-            }
+            if (countAP[i] > aps[i].Capacity) 
+                penalty += (countAP[i] - aps[i].Capacity) * 1000; // penalidade de 1000 para cada cliente excedente
         }
         Fitness = totalDistance + penalty;
     }
@@ -49,10 +45,10 @@ public class Individual
         var length = parent1.Genes.Length;
         var offspring = new Individual(length, parent1.NumAPs, random);
         var crossoverPoint = random.Next(length);
-        for (var i = 0; i < length; i++)
-        {
-            offspring.Genes[i] = (i < crossoverPoint) ? parent1.Genes[i] : parent2.Genes[i];
-        }
+        // o filho herda a primeira parte dos genes de um pai e a segunda parte do outro.
+        for (var i = 0; i < length; i++) 
+            offspring.Genes[i] = i < crossoverPoint ? parent1.Genes[i] : parent2.Genes[i];
+
         return offspring;
     }
 
@@ -61,10 +57,8 @@ public class Individual
     {
         for (var i = 0; i < Genes.Length; i++)
         {
-            if (random.NextDouble() < mutationRate)
-            {
+            if (random.NextDouble() < mutationRate) 
                 Genes[i] = random.Next(NumAPs);
-            }
         }
     }
 
