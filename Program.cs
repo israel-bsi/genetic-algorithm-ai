@@ -64,9 +64,13 @@ public class Program
         }
 
         Console.WriteLine("\nAtribuição final dos clientes aos APs:");
-        for (var i = 0; i < best.Genes.Length; i++) 
-            Console.WriteLine($"Cliente {i + 1}: AP {aps[best.Genes[i]].Name}");
-
+        for (var i = 0; i < best.Genes.Length; i++)
+        {
+            var customer = customers[i];
+            var ap = aps[best.Genes[i]];
+            Console.WriteLine($"Cliente ({customer.X}, {customer.Y}) => AP {ap.Name} ({ap.X}, {ap.Y})");
+        } 
+        
         Console.WriteLine("\nFitness final: " + best.Fitness.ToString("F2"));
         Console.WriteLine("Clientes no AP 1: " + best.Genes.Count(g => g == 0));
         Console.WriteLine("Clientes no AP 2: " + best.Genes.Count(g => g == 1));
